@@ -16,7 +16,6 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
       "@modules/*": ["src/modules/*"],
