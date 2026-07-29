@@ -1,13 +1,27 @@
 {
-  "version": 2,
-  "routes": [
-    {
-      "src": "/api/backend/(.*)",
-      "dest": "/backend/$1"
+    "services": {
+        "frontend": {
+            "root": ".",
+            "framework": "nextjs"
+        },
+        "backend": {
+            "root": "backend"
+        }
     },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ]
+    "rewrites": [
+        {
+            "source": "/api/backend(/.*)?",
+            "destination": {
+                "type": "service",
+                "service": "backend"
+            }
+        },
+        {
+            "source": "/(.*)",
+            "destination": {
+                "type": "service",
+                "service": "frontend"
+            }
+        }
+    ]
 }
