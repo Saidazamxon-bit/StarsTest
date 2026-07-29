@@ -150,7 +150,7 @@ export function NftGifts() {
               <motion.div whileHover={{ scale: 1.03 }} className="relative m-2 overflow-hidden rounded-2xl">
                 <Image
                   src={nft.image || '/placeholder.svg'}
-                  alt={`${nft.name} NFT gifti`}
+                  alt={nft.name + ' NFT gifti'}
                   width={400}
                   height={400}
                   className="aspect-square w-full object-cover"
@@ -190,29 +190,29 @@ export function NftGifts() {
                   </motion.button>
                 </div>
 
-                <motion.button
+                  <motion.button
                   type="button"
                   whileTap={{ scale: 0.96 }}
                   onClick={() => handleBuy(nft)}
                   data-disable-sound="true"
                   className="shimmer mt-1.5 flex items-center justify-center gap-1.5 rounded-full border border-gold/50 bg-gold/10 py-2 text-xs font-bold text-gold"
                 >
-                  {bought === nft.id ? (
-                    <>
-                      <Check className="size-3.5" strokeWidth={3} aria-hidden="true" />
-                      {t('purchase.send')}
-                    </>
-                  ) : balance >= nft.price ? (
-                    <>
-                      <Coins className="size-3.5" aria-hidden="true" />
-                      {t('purchase.buy')}
-                    </>
-                  ) : (
-                    <>
-                      <Wallet className="size-3.5" aria-hidden="true" />
-                      {t('balance.topup')}
-                    </>
-                  )}
+                    {bought === nft.id ? (
+                      <span className="flex items-center gap-1">
+                        <Check className="size-3.5" strokeWidth={3} aria-hidden="true" />
+                        {t('purchase.send')}
+                      </span>
+                    ) : balance >= nft.price ? (
+                      <span className="flex items-center gap-1">
+                        <Coins className="size-3.5" aria-hidden="true" />
+                        {t('purchase.buy')}
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-1">
+                        <Wallet className="size-3.5" aria-hidden="true" />
+                        {t('balance.topup')}
+                      </span>
+                    )}
                 </motion.button>
               </div>
             </motion.article>

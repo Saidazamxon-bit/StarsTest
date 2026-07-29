@@ -186,7 +186,7 @@ export function RegularGifts() {
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-bold text-foreground">{t('gifts.list.title')}</h2>
           <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-            {loading ? '...' : `${list.length} ta`}
+            {loading ? '...' : list.length + ' ta'}
             <RefreshCw className="size-3.5" aria-hidden="true" />
           </span>
         </div>
@@ -211,7 +211,7 @@ export function RegularGifts() {
                 onClick={() => handleBuy(g)}
                 data-disable-sound="true"
                 className="relative flex flex-col items-center gap-1.5 rounded-2xl border border-border bg-secondary/60 px-2 pb-3 pt-4"
-                aria-label={`${g.name} — ${formatUZS(g.price)} UZS, ${t('purchase.buy')}`}
+                aria-label={g.name + ' — ' + formatUZS(g.price) + ' UZS, ' + t('purchase.buy')}
               >
                 <span className="text-4xl leading-none" role="img" aria-hidden="true">
                   {g.emoji}
